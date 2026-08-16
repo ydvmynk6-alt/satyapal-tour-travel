@@ -882,7 +882,9 @@ closeModal();
 
   <div style="margin-top:30px;padding:25px;border-radius:15px;box-shadow:0 3px 15px rgba(0,0,0,.08);">
     <h3>Share Your Experience</h3>
-
+<button type="button" onclick="googleLogin()">
+  Continue with Google
+</button>
     <input id="review-name" type="text" placeholder="Your Name"
       style="width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:8px;">
 
@@ -921,7 +923,11 @@ closeModal();
     orderBy,
     serverTimestamp
   } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
-
+   import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
   const firebaseConfig = {
     apiKey: "AIzaSyDRhk89ak16uY_EzXTy2p-MY_2VR7a_IPw",
     authDomain: "satyapal-tour-n-travel-reviews.firebaseapp.com",
@@ -934,8 +940,28 @@ closeModal();
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+  window.googleLogin = async function() {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
 
+    document.getElementById("review-name").value =
+      user.displayName || "";
+      
+    document.getElementById("review-message").textContent =
+      "Signed in as " + (user.email || "");
+  } catch (error) {
+    console.error(error);
+    alert("Google login failed. Please try again.");
+  }
+};
   window.submitReview = async function() {
+    if (!auth.currentUser) {
+  alert("Please sign in with Google before submitting your review.");
+  return;
+}
     const name = document.getElementById("review-name").value.trim();
     const rating = Number(document.getElementById("review-rating").value);
     const text = document.getElementById("review-text").value.trim();
