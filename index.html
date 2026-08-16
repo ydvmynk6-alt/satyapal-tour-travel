@@ -159,9 +159,11 @@ document.getElementById('mtitle').textContent=title;
 document.getElementById('mdesc').textContent=desc;
 document.getElementById('mimg').src=img;
 document.getElementById('modal').style.display='flex'
+document.body.style.overflow = "hidden";
 }
 function closeModal(){
 document.getElementById('modal').style.display='none'
+document.body.style.overflow = "auto";
 }
 </script>
 
