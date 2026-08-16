@@ -114,6 +114,12 @@ footer{background:#111;color:#fff;text-align:center;padding:25px}
 <div class="modalcontent">
 <h2 id="mtitle"></h2>
 <p id="mdesc"></p>
+<div id="jaipurGallery" style="display:none;">
+<img src="jaipur-hawa-mahal.jpeg" style="width:100%; border-radius:12px;">
+<img src="jaipur-amer-fort.jpeg" style="width:100%; border-radius:12px;">
+<img src="jaipur-city-palace.jpeg" style="width:100%; border-radius:12px;">
+<img src="jaipur-jal-mahal.jpeg" style="width:100%; border-radius:12px;">
+</div>
 <a class="btn" href="https://wa.me/919810886616">Book / Enquire on WhatsApp</a>
 </div>
 </div>
@@ -121,6 +127,7 @@ footer{background:#111;color:#fff;text-align:center;padding:25px}
 
 <script>
 function openModal(title,desc,img){
+document.getElementById('jaipurGallery').style.display = title === 'Jaipur' ? 'block' : 'none';
 document.getElementById('mtitle').textContent=title;
 document.getElementById('mdesc').textContent=desc;
 document.getElementById('mimg').src=img;
