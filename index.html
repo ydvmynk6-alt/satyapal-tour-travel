@@ -3,169 +3,814 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Satyapal Tour & Travel</title>
-<meta name="description" content="Satyapal Tour & Travel offers comfortable cars, Rajasthan, Delhi, Agra, Jaipur and India tours.">
+
+<title>Satyapal Tour & Travel in India</title>
+
+<meta name="description" content="Satyapal Tour & Travel in India. Cars, tours and travel services for Delhi, Agra, Jaipur, Rajasthan and India.">
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f7f7f7;color:#222}
-header{background:#111;color:#fff;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
-header h2{margin:0;color:#ffc400}nav a{color:#fff;text-decoration:none;margin-left:20px}
-.hero{padding:70px 6%;text-align:center;background:linear-gradient(#0008,#0008),url('https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1600&q=80') center/cover;color:white}
-.hero h1{font-size:48px;margin:10px 0}.hero p{font-size:20px}
-section{padding:45px 6%}h2{text-align:center;margin-bottom:30px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
-.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 15px #0002;cursor:pointer;transition:.2s}
-.card:hover{transform:translateY(-4px)}.card img{width:100%;height:170px;object-fit:cover}.card div{padding:18px}
-.card h3{margin:0 0 8px}.card p{color:#666;margin:0}
-.btn{display:inline-block;background:#ffc400;color:#111;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:15px}
-.modalbox{
-background:white;
-max-width:650px;
-width:92vw;
-max-height:90vh;
-overflow-y:auto;
-box-sizing:border-box;
-border-radius:15px;
+*{
+  box-sizing:border-box;
 }
 
-.modalbox img{width:100%;height:280px;object-fit:cover}.modalcontent{padding:25px}.close{position:absolute;right:15px;top:12px;background:#fff;border:0;border-radius:50%;width:36px;height:36px;font-size:22px;cursor:pointer}
-footer{background:#111;color:#fff;text-align:center;padding:25px}
+html{
+  scroll-behavior:smooth;
+}
 
-  .modal img {
-    width: 100% !important;
-    height: 150px !important;
-    object-fit: cover !important;
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f6f8;
+  color:#222;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#111;
+  color:white;
+  padding:15px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  color:#ffc400;
+  font-size:20px;
+  font-weight:bold;
+}
+
+nav{
+  display:flex;
+  gap:20px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+nav a:hover{
+  color:#ffc400;
+}
+
+.hero{
+  min-height:560px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  padding:60px 6%;
+
+  background:
+  linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.62)),
+  url("jaipur-city-palace.jpeg") center/cover no-repeat;
+}
+
+.hero-inner{
+  max-width:850px;
+}
+
+.hero h1{
+  font-size:clamp(35px,6vw,62px);
+  margin:0 0 18px;
+}
+
+.hero p{
+  font-size:20px;
+  line-height:1.6;
+  margin-bottom:25px;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:13px 21px;
+  border-radius:9px;
+  text-decoration:none;
+  font-weight:bold;
+  border:0;
+  cursor:pointer;
+}
+
+.yellow{
+  background:#ffc400;
+  color:#111;
+}
+
+.green{
+  background:#20c76b;
+  color:white;
+}
+
+.dark{
+  background:#111;
+  color:white;
+}
+
+section{
+  padding:55px 6%;
+}
+
+.title{
+  text-align:center;
+  font-size:32px;
+  margin:0 0 10px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#666;
+  max-width:750px;
+  margin:0 auto 30px;
+  line-height:1.6;
+}
+
+.grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:22px;
+}
+
+.card{
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 5px 18px rgba(0,0,0,.12);
+}
+
+.card img{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  display:block;
+}
+
+.card-content{
+  padding:18px;
+}
+
+.card h3{
+  margin:0 0 8px;
+  font-size:21px;
+}
+
+.card p{
+  color:#666;
+  line-height:1.5;
+}
+
+.card button{
+  margin-top:8px;
+}
+
+.contact{
+  background:#111;
+  color:white;
+  text-align:center;
+}
+
+.contact p{
+  color:#ddd;
+  line-height:1.7;
+}
+
+.number{
+  color:#ffc400;
+  font-size:26px;
+  font-weight:bold;
+  margin:15px 0 22px;
+}
+
+footer{
+  background:#080808;
+  color:#aaa;
+  text-align:center;
+  padding:25px;
+}
+
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:1500;
+  background:#20c76b;
+  color:white;
+  text-decoration:none;
+  padding:14px 19px;
+  border-radius:50px;
+  font-weight:bold;
+  box-shadow:0 5px 18px rgba(0,0,0,.3);
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:rgba(0,0,0,.75);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.open{
+  display:flex;
+}
+
+.modal-box{
+  background:white;
+  width:min(680px,100%);
+  max-height:90vh;
+  overflow:auto;
+  border-radius:16px;
+  position:relative;
+}
+
+.modal-box img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+}
+
+.modal-content{
+  padding:25px;
+}
+
+.close{
+  position:absolute;
+  right:12px;
+  top:12px;
+  width:40px;
+  height:40px;
+  border:0;
+  border-radius:50%;
+  background:white;
+  font-size:25px;
+  cursor:pointer;
+}
+
+@media(max-width:700px){
+
+  header{
+    flex-direction:column;
+    gap:12px;
   }
 
-  #jaipurGallery {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
+  nav{
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
   }
 
-  #jaipurGallery img {
-    width: 100% !important;
-    height: 150px !important;
-    object-fit: cover !important;
+  .hero{
+    min-height:520px;
+  }
+
+  section{
+    padding:45px 5%;
+  }
+
+  .card img{
+    height:175px;
+  }
+
+  .whatsapp{
+    right:14px;
+    bottom:14px;
   }
 }
 </style>
 </head>
+
 <body>
 
+<!-- HEADER -->
+
 <header>
-<h2>SATYAPAL TOUR & TRAVEL</h2>
+
+<div class="logo">
+SATYAPAL TOUR & TRAVEL
+</div>
+
 <nav>
-<a href="#vehicles">Vehicles</a>
-<a href="#cities">Destinations</a>
+<a href="#home">Home</a>
+<a href="#cars">Cars</a>
+<a href="#destinations">Destinations</a>
 <a href="#contact">Contact</a>
 </nav>
+
 </header>
 
-<div class="hero">
-<h1>Satyapal Tour and Travel in India</h1>
-<p>Comfortable cars, experienced travel service and memorable journeys across India.</p>
-<a class="btn" href="https://wa.me/919810886616">Book on WhatsApp</a>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+<div class="hero-inner">
+
+<h1>
+Satyapal Tour and Travel in India
+</h1>
+
+<p>
+Comfortable cars, professional travel service and memorable journeys across Delhi, Agra, Jaipur, Rajasthan and India.
+</p>
+
+<div class="buttons">
+
+<a class="btn green"
+href="https://wa.me/919810886616?text=Hello%20Satyapal%20Tour%20%26%20Travel%2C%20I%20want%20to%20ask%20about%20a%20tour."
+target="_blank">
+
+💬 Chat on WhatsApp
+
+</a>
+
+<a class="btn yellow" href="#cars">
+View Cars
+</a>
+
+<a class="btn dark" href="#destinations">
+Destinations
+</a>
+
 </div>
 
-<section id="vehicles">
-<h2>Our Vehicles</h2>
+</div>
+
+</section>
+
+
+<!-- CARS -->
+
+<section id="cars">
+
+<h2 class="title">
+Our Cars & Vehicles
+</h2>
+
+<p class="subtitle">
+Choose a comfortable vehicle for family trips, airport transfers, outstation journeys, group tours and events.
+</p>
+
+
 <div class="grid">
 
-<div class="card" onclick="openModal('Maruti Ertiga','Comfortable 7-seater family car, ideal for family tours, airport transfers and outstation trips.','images/maruti-ertiga.png')">
+
+<!-- ERTIGA -->
+
+<div class="card">
+
 <img src="maruti-ertiga.png" alt="Maruti Ertiga">
-<div><h3>Maruti Ertiga</h3><p>Family travel & outstation</p></div>
+
+<div class="card-content">
+
+<h3>
+Maruti Ertiga
+</h3>
+
+<p>
+Comfortable 7-seater for family tours and outstation trips.
+</p>
+
+<button class="btn yellow"
+onclick="openModal(
+'Maruti Ertiga',
+'Comfortable 7-seater for family tours, airport transfers and outstation trips.',
+'maruti-ertiga.png'
+)">
+View Details
+</button>
+
 </div>
 
-<div class="card" onclick="openModal('Toyota Innova Crysta','Premium 7-seater comfort for long-distance journeys, family trips and corporate travel.','images/innova-crysta.png')">
+</div>
+
+
+<!-- CRYSTA -->
+
+<div class="card">
+
 <img src="innova-crysta.png" alt="Toyota Innova Crysta">
-<div><h3>Toyota Innova Crysta</h3><p>Premium comfort</p></div>
+
+<div class="card-content">
+
+<h3>
+Toyota Innova Crysta
+</h3>
+
+<p>
+Premium comfort for family and long-distance journeys.
+</p>
+
+<button class="btn yellow"
+onclick="openModal(
+'Toyota Innova Crysta',
+'Premium and comfortable vehicle for family trips, corporate travel and long-distance journeys.',
+'innova-crysta.png'
+)">
+View Details
+</button>
+
 </div>
 
-<div class="card" onclick="openModal('Force Urbania','Spacious vehicle suitable for groups, families and multi-day tours.','images/force-urbania.png')">
+</div>
+
+
+<!-- URBANIA -->
+
+<div class="card">
+
 <img src="force-urbania.png" alt="Force Urbania">
-<div><h3>Force Urbania</h3><p>Groups & families</p></div>
+
+<div class="card-content">
+
+<h3>
+Force Urbania
+</h3>
+
+<p>
+Spacious vehicle for groups and multi-day tours.
+</p>
+
+<button class="btn yellow"
+onclick="openModal(
+'Force Urbania',
+'Spacious and comfortable vehicle for groups, families and multi-day tours.',
+'force-urbania.png'
+)">
+View Details
+</button>
+
 </div>
 
-<div class="card" onclick="openModal('Traveller','Comfortable group-travel option for events, family groups and outstation tours.','images/force-traveller.png')">
-<img src="force-traveller.png" alt="Traveller">
-<div><h3>Traveller</h3><p>Group tours & events</p></div>
 </div>
 
-<div class="card" onclick="openModal('Hyundai Aura','Comfortable sedan option for couples, small families and city travel.','images/hyundai-aura.png')">
+
+<!-- TRAVELLER -->
+
+<div class="card">
+
+<img src="force-traveller.png" alt="Force Traveller">
+
+<div class="card-content">
+
+<h3>
+Force Traveller
+</h3>
+
+<p>
+Ideal for group tours, events and outstation travel.
+</p>
+
+<button class="btn yellow"
+onclick="openModal(
+'Force Traveller',
+'Comfortable group travel vehicle for events, family groups and outstation tours.',
+'force-traveller.png'
+)">
+View Details
+</button>
+
+</div>
+
+</div>
+
+
+<!-- AURA -->
+
+<div class="card">
+
 <img src="hyundai-aura.png" alt="Hyundai Aura">
-<div><h3>Hyundai Aura</h3><p>City & small groups</p></div>
+
+<div class="card-content">
+
+<h3>
+Hyundai Aura
+</h3>
+
+<p>
+Comfortable sedan for city travel and small groups.
+</p>
+
+<button class="btn yellow"
+onclick="openModal(
+'Hyundai Aura',
+'Comfortable sedan for couples, small families and city travel.',
+'hyundai-aura.png'
+)">
+View Details
+</button>
+
 </div>
 
 </div>
+
+
+</div>
+
 </section>
 
-<section id="cities">
-<h2>Popular Destinations</h2>
+
+<!-- DESTINATIONS -->
+
+<section id="destinations">
+
+<h2 class="title">
+Popular Destinations
+</h2>
+
+<p class="subtitle">
+Plan sightseeing, one-day trips and multi-day tours with comfortable transportation.
+</p>
+
+
 <div class="grid">
 
-<div class="card" onclick="openModal('Jaipur','3-star, 4-star and 5-star hotels available in Jaipur. We provide hotel booking, sightseeing, local tours, airport and railway station transfers, private cars with driver, family tours and customized Jaipur tour packages..','https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1000&q=80')">
-<img src="jaipur-hawa-mahal.jpeg"
-<div><h3>Jaipur</h3><p>Pink City & Rajasthan tours</p></div>
+
+<!-- JAIPUR -->
+
+<div class="card">
+
+<img src="jaipur-amer-fort.jpeg" alt="Jaipur Amer Fort">
+
+<div class="card-content">
+
+<h3>
+Jaipur
+</h3>
+
+<p>
+Amer Fort, City Palace, Hawa Mahal, Jal Mahal and the Pink City.
+</p>
+
+<button class="btn yellow"
+onclick="openModal(
+'Jaipur Tour',
+'Explore Amer Fort, City Palace, Hawa Mahal, Jal Mahal and the beautiful Pink City.',
+'jaipur-amer-fort.jpeg'
+)">
+Explore Jaipur
+</button>
+
 </div>
 
-<div class="card" onclick="openModal('Delhi','Visit historic monuments, markets, food streets and major attractions of India’s capital.','https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1000&q=80')">
-<img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1000&q=80">
-<div><h3>Delhi</h3><p>History, food & sightseeing</p></div>
 </div>
 
-<div class="card" onclick="openModal('Agra','Discover the Taj Mahal, Agra Fort and other famous heritage attractions.','https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1000&q=80')">
-<img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1000&q=80">
-<div><h3>Agra</h3><p>Taj Mahal & heritage</p></div>
+
+<!-- DELHI -->
+
+<div class="card">
+
+<img src="jaipur-city-palace.jpeg" alt="Delhi Tour">
+
+<div class="card-content">
+
+<h3>
+Delhi
+</h3>
+
+<p>
+Historic monuments, markets, food streets and major attractions.
+</p>
+
+<button class="btn yellow"
+onclick="openModal(
+'Delhi Tour',
+'Plan a comfortable Delhi sightseeing and travel trip with Satyapal Tour & Travel.',
+'jaipur-city-palace.jpeg'
+)">
+Ask for Delhi Tour
+</button>
+
 </div>
 
-<div class="card" onclick="openModal('Rajasthan','Plan comfortable road trips across Rajasthan with flexible sightseeing and travel support.','https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1000&q=80')">
-<img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1000&q=80">
-<div><h3>Rajasthan</h3><p>Forts, palaces & road trips</p></div>
+</div>
+
+
+<!-- AGRA -->
+
+<div class="card">
+
+<img src="jaipur-hawa-mahal.jpeg" alt="Agra Tour">
+
+<div class="card-content">
+
+<h3>
+Agra
+</h3>
+
+<p>
+Taj Mahal, Agra Fort and famous heritage attractions.
+</p>
+
+<button class="btn yellow"
+onclick="openModal(
+'Agra Tour',
+'Visit the Taj Mahal, Agra Fort and other famous heritage attractions.',
+'jaipur-hawa-mahal.jpeg'
+)">
+Ask for Agra Tour
+</button>
+
 </div>
 
 </div>
+
+
+<!-- RAJASTHAN -->
+
+<div class="card">
+
+<img src="jaipur-jal-mahal.jpeg" alt="Rajasthan Tour">
+
+<div class="card-content">
+
+<h3>
+Rajasthan
+</h3>
+
+<p>
+Forts, palaces, heritage cities and comfortable road trips.
+</p>
+
+<button class="btn yellow"
+onclick="openModal(
+'Rajasthan Tour',
+'Plan a comfortable road trip across Rajasthan with sightseeing and travel support.',
+'jaipur-jal-mahal.jpeg'
+)">
+Ask for Rajasthan Tour
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
 </section>
 
-<section id="contact" style="text-align:center">
-<h2>Plan Your Trip</h2>
-<p>Call +91 9810886616 for vehicle availability and tour planning.</p>
-<a class="btn" href="tel:+919810886616">Call +91 9810886616</a>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<h2 class="title">
+Contact Satyapal Tour & Travel
+</h2>
+
+<p>
+For bookings, vehicle availability, sightseeing plans or any tour enquiry, contact us directly.
+</p>
+
+<div class="number">
++91 9810886616
+</div>
+
+<div class="buttons">
+
+<a class="btn yellow"
+href="tel:+919810886616">
+📞 Call Now
+</a>
+
+<a class="btn green"
+href="https://wa.me/919810886616?text=Hello%20Satyapal%20Tour%20%26%20Travel%2C%20I%20want%20to%20make%20an%20enquiry."
+target="_blank">
+💬 Ask on WhatsApp
+</a>
+
+</div>
+
 </section>
 
-<footer>© 2026 Satyapal Tour & Travel</footer>
 
-<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
-<div class="modalbox">
-<button class="close" onclick="closeModal()">×</button>
-<img id="mimg">
-<div class="modalcontent">
-<h2 id="mtitle"></h2>
-<p id="mdesc"></p>
-<div id="jaipurGallery" style="display:none;">
-<img src="jaipur-hawa-mahal.jpeg" style="width:100%; border-radius:12px;">
-<img src="jaipur-amer-fort.jpeg" style="width:100%; border-radius:12px;">
-<img src="jaipur-city-palace.jpeg" style="width:100%; border-radius:12px;">
-<img src="jaipur-jal-mahal.jpeg" style="width:100%; border-radius:12px;">
+<footer>
+
+© 2026 Satyapal Tour & Travel. All Rights Reserved.
+
+</footer>
+
+
+<!-- FLOATING WHATSAPP -->
+
+<a class="whatsapp"
+href="https://wa.me/919810886616?text=Hello%20Satyapal%20Tour%20%26%20Travel%2C%20I%20want%20to%20make%20an%20enquiry."
+target="_blank">
+
+💬 WhatsApp
+
+</a>
+
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal()">
+×
+</button>
+
+<img id="modalImage" src="" alt="">
+
+<div class="modal-content">
+
+<h2 id="modalTitle">
+</h2>
+
+<p id="modalText">
+</p>
+
+<a id="modalWhatsapp"
+class="btn green"
+href="#"
+target="_blank">
+
+💬 Ask on WhatsApp
+
+</a>
+
 </div>
-<a class="btn" href="https://wa.me/919810886616">Book / Enquire on WhatsApp</a>
+
 </div>
+
 </div>
-</div>
+
 
 <script>
-function openModal(title,desc,img){
-document.getElementById('jaipurGallery').style.display = title === 'Jaipur' ? 'block' : 'none';
-document.getElementById('mtitle').textContent=title;
-document.getElementById('mdesc').textContent=desc;
-document.getElementById('mimg').src=img;
-document.getElementById('modal').style.display='flex'
-document.body.style.overflow = "hidden";
+
+function openModal(title,text,image){
+
+document.getElementById("modalTitle").textContent=title;
+
+document.getElementById("modalText").textContent=text;
+
+document.getElementById("modalImage").src=image;
+
+document.getElementById("modalImage").alt=title;
+
+document.getElementById("modalWhatsapp").href=
+"https://wa.me/919810886616?text="+
+encodeURIComponent(
+"Hello Satyapal Tour & Travel, I want to ask about "+title+"."
+);
+
+document.getElementById("modal").classList.add("open");
+
+document.body.style.overflow="hidden";
+
 }
 
+
 function closeModal(){
-document.getElementById('modal').style.display='none'
-document.body.style.overflow = "auto";
+
+document.getElementById("modal").classList.remove("open");
+
+document.body.style.overflow="auto";
+
 }
+
+
+document.getElementById("modal").addEventListener("click",function(e){
+
+if(e.target===this){
+
+closeModal();
+
+}
+
+});
+
+
+document.addEventListener("keydown",function(e){
+
+if(e.key==="Escape"){
+
+closeModal();
+
+}
+
+});
+
 </script>
 
 </body>
