@@ -762,7 +762,180 @@ target="_blank">
   </a>
 </p>
 </section>
+<!-- CUSTOMER REVIEWS -->
+<section id="customer-reviews" style="padding:40px 20px;max-width:900px;margin:auto;">
 
+<h2 style="text-align:center;">Customer Reviews</h2>
+
+<div id="reviews-list" style="margin-top:25px;"></div>
+
+<div style="margin-top:30px;padding:25px;border-radius:15px;box-shadow:0 3px 15px rgba(0,0,0,.08);">
+
+<h3>Share Your Experience</h3>
+
+<input id="review-name"
+type="text"
+placeholder="Your Name"
+style="width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:8px;">
+
+<select id="review-rating"
+style="width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:8px;">
+<option value="5">★★★★★ - Excellent</option>
+<option value="4">★★★★☆ - Very Good</option>
+<option value="3">★★★☆☆ - Good</option>
+<option value="2">★★☆☆☆ - Average</option>
+<option value="1">★☆☆☆☆ - Poor</option>
+</select>
+
+<textarea id="review-text"
+placeholder="Write your review..."
+style="width:100%;padding:12px;margin:8px 0;height:100px;border:1px solid #ddd;border-radius:8px;"></textarea>
+
+<button id="submit-review-btn"
+type="button"
+style="padding:12px 25px;border:0;border-radius:8px;background:#111;color:white;cursor:pointer;">
+Submit Review
+</button>
+
+<p id="review-message"></p>
+
+</div>
+</section>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs,
+query,
+orderBy,
+serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyDRhk89ak16uY_EzXTy2p-MY_2VR7a_IPw",
+authDomain: "satyapal-tour-n-travel-reviews.firebaseapp.com",
+projectId: "satyapal-tour-n-travel-reviews",
+storageBucket: "satyapal-tour-n-travel-reviews.firebasestorage.app",
+messagingSenderId: "158587540739",
+appId: "1:158587540739:web:e0aebf88e2e42cc421c536",
+measurementId: "G-7H3YRN88PH"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const reviewsList = document.getElementById("reviews-list");
+const message = document.getElementById("review-message");
+
+async function loadReviews() {
+
+reviewsList.innerHTML = "";
+
+const q = query(
+collection(db, "reviews"),
+orderBy("createdAt", "desc")
+);
+
+const snapshot = await getDocs(q);
+
+if (snapshot.empty) {
+reviewsList.innerHTML =
+"<p style='text-align:center;color:#777;'>No reviews yet. Be the first to review us!</p>";
+return;
+}
+
+snapshot.forEach(doc => {
+
+const review = doc.data();
+
+const card = document.createElement("div");
+
+card.style.cssText =
+"padding:20px;margin:15px 0;border:1px solid #eee;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);";
+
+card.innerHTML = `
+<strong>${review.name}</strong>
+<div style="color:#f5a623;font-size:20px;margin:6px 0;">
+${"★".repeat(review.rating)}${"☆".repeat(5-review.rating)}
+</div>
+<p style="margin:8px 0;">${review.text}</p>
+`;
+
+reviewsList.appendChild(card);
+
+});
+
+}
+
+document.getElementById("submit-review-btn").onclick =
+async function() {
+
+const name =
+document.getElementById("review-name").value.trim();
+
+const rating =
+Number(document.getElementById("review-rating").value);
+
+const text =
+document.getElementById("review-text").value.trim();
+
+if (!name || !text) {
+
+message.textContent =
+"Please enter your name and review.";
+
+message.style.color = "red";
+
+return;
+
+}
+
+try {
+
+await addDoc(collection(db, "reviews"), {
+
+name: name,
+rating: rating,
+text: text,
+createdAt: serverTimestamp()
+
+});
+
+message.textContent =
+"Thank you! Your review has been submitted successfully.";
+
+message.style.color = "green";
+
+document.getElementById("review-name").value = "";
+document.getElementById("review-text").value = "";
+
+await loadReviews();
+
+}
+
+catch(error) {
+
+console.error(error);
+
+message.textContent =
+"Review could not be submitted. Please try again.";
+
+message.style.color = "red";
+
+}
+
+};
+
+loadReviews();
+
+</script>
 
 <footer>
 
