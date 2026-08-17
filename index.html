@@ -937,85 +937,42 @@ closeModal();
  
   window.submitReview = async function() {
 
-    const name = document.getElementById("review-name").value.trim();
-    const rating = Number(document.getElementById("review-rating").value);
-    const text = document.getElementById("review-text").value.trim();
-    const message = document.getElementById("review-message");
+  const name = document.getElementById("review-name").value.trim();
+  const rating = Number(document.getElementById("review-rating").value);
+  const text = document.getElementById("review-text").value.trim();
+  const message = document.getElementById("review-message");
 
-    if (!name || !text) {
-      message.textContent = "Please enter your name and review.";
-      return;
-    }
-
-    try {
-      await addDoc(collection(db, "reviews"), {
-        name: name,
-        rating: rating,
-        text: text,
-        createdAt: serverTimestamp()
-      });
-
-      message.textContent = "Thank you! Your review has been submitted.";
-      document.getElementById("review-name").value = "";
-      document.getElementById("review-text").value = "";
-      loadReviews();
-    } catch (error) {
-      console.error(error);
-      message.textContent = "Unable to submit review. Please try again.";
-    }
-  };
-
-  async function loadReviews() {
-    const list = document.getElementById("reviews-list");
-    list.innerHTML = "<p>Loading reviews...</p>";
-
-    try {
-      const q = query(
-        collection(db, "reviews"),
-        orderBy("createdAt", "desc")
-      );
-
-      const snapshot = await getDocs(q);
-
-      if (snapshot.empty) {
-        list.innerHTML = "<p>No reviews yet. Be the first to review us!</p>";
-        return;
-      }
-
-      list.innerHTML = "";
-
-      snapshot.forEach((doc) => {
-        const review = doc.data();
-
-        const card = document.createElement("div");
-        card.style.cssText =
-          "padding:20px;margin:15px 0;border-radius:12px;background:#f8f8f8;box-shadow:0 2px 10px rgba(0,0,0,.06);";
-
-        const stars = "★".repeat(review.rating || 5) +
-                      "☆".repeat(5 - (review.rating || 5));
-
-        card.innerHTML = `
-          <h3 style="margin:0 0 5px;">${escapeHTML(review.name)}</h3>
-          <div style="font-size:20px;margin-bottom:8px;">${stars}</div>
-          <p style="margin:0;">${escapeHTML(review.text)}</p>
-        `;
-
-        list.appendChild(card);
-      });
-
-    } catch (error) {
-      console.error(error);
-      list.innerHTML = "<p>Reviews could not be loaded.</p>";
-    }
+  if (!name || !text) {
+    message.textContent = "Please enter your name and review.";
+    message.style.color = "red";
+    return;
   }
 
-  function escapeHTML(text) {
-    const div = document.createElement("div");
-    div.textContent = text;
-    return div.innerHTML;
-  }
+  try {
 
-  loadReviews();
-</script>
-</body>
-</html>
+    await addDoc(collection(db, "reviews"), {
+      name: name,
+      rating: rating,
+      text: text,
+      createdAt: serverTimestamp()
+    });
+
+    message.textContent = "Thank you! Your review has been submitted successfully.";
+    message.style.color = "green";
+
+    document.getElementById("review-name").value = "";
+    document.getElementById("review-rating").value = "5";
+    document.getElementById("review-text").value = "";
+
+    setTimeout(function() {
+      location.reload();
+    }, 1000);
+
+  } catch (error) {
+
+    console.error("Review submission error:", error);
+
+    message.textContent = "Review could not be submitted. Please try again.";
+    message.style.color = "red";
+  }
+};
